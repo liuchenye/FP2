@@ -1,6 +1,6 @@
 ### My Library: (games/cards) a Virtual Playing Cards Library
 
-  Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. So the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card
+  Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. So the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card.
 
 #Code:
 lang racket
@@ -55,6 +55,7 @@ lang racket
                 [j (quotient pos WIDTH)])
             (values (+ dx (* i (+ cw dx)))
                     (+ dy (* j (+ ch dy))))))))
+                    
 (setup)
 (send t show #t)
 
