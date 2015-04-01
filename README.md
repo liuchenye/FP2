@@ -1,24 +1,21 @@
 ### My Library: (games/cards) a Virtual Playing Cards Library
 
+  Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. So the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card
 
-Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. So the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card
+#Code:
+lang racket
+(require games/cards)
+(require racket/gui)
 
-Code:
-#lang racket
-###(require games/cards)
-###(require racket/gui)
+(define WIDTH 4)
+(define HEIGHT 2)
+(define t (make-table "Memory" (+ 2 WIDTH) (+ 1 HEIGHT)))
+(send t set-double-click-action #f)
 
-###(define WIDTH 4)
-###(define HEIGHT 2)
+(define w (send t table-width))
+(define h (send t table-height))
 
-###(define t (make-table "Memory" (+ 2 WIDTH) (+ 1 HEIGHT)))
-###(send t show #t)
-###(send t set-double-click-action #f)
-
-###(define w (send t table-width))
-###(define h (send t table-height))
-
-###(define deck 
+(define deck 
   (let ([cards (map (lambda (name value)
                       (let ([bm (make-object
                                  bitmap%
@@ -36,20 +33,20 @@ Code:
           deck)
 
 
-###(define cw (send (car deck) card-width))
-###(define ch (send (car deck) card-height))
-
-###(define dx (/ cw (+ 2 WIDTH)))
-###(define dy (/ ch (+ 1 HEIGHT)))
-
-###(define match-x (- w cw dx))
-###(define match-y dy)
+(define cw (send (car deck) card-width))
+(define ch (send (car deck) card-height))
+(define dx (/ cw (+ 2 WIDTH)))
+(define dy (/ ch (+ 1 HEIGHT)))
 
 
-###(send t add-cards deck match-x match-y)
+(define match-x (- w cw dx))
+(define match-y dy)
 
 
-###(define (setup)
+(send t add-cards deck match-x match-y)
+
+
+(define (setup)
   (set! deck (shuffle-list deck 7))
   (send t stack-cards deck)
   (send t move-cards deck 0 0
@@ -58,9 +55,9 @@ Code:
                 [j (quotient pos WIDTH)])
             (values (+ dx (* i (+ cw dx)))
                     (+ dy (* j (+ ch dy))))))))
-###(setup)
-###(send t show #t)
- 
+(setup)
+(send t show #t)
+
 
 
 
