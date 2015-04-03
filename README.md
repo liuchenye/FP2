@@ -1,6 +1,6 @@
 ### My Library: (games/cards) a Virtual Playing Cards Library
 
-  Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. So the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card.
+  Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. Our game belongs to the type of the fun examples in the bundled games (http://docs.racket-lang.org/games/index.html?q=memory), right now we still considering the rules of the game, and how many players in the game. in the FP2. I just try to build a card game by the library. And the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card.
 
 #Code:
 lang racket
@@ -58,15 +58,3 @@ lang racket
                     
 (setup)
 (send t show #t)
-
-
-
-
-
-1. To start, [**fork** this repository][forking].
-1. Modify the README.md file and [**commit**][ref-commit] changes to complete your solution.
-  2. (This assignment is just one README.md file, so you can edit it right in github without cloning)
-  3. (You may need to clone and push if you want to add extra files)
-1. [Create a **pull request**][pull-request] on the original repository to turn in the assignment.
-
-
