@@ -3,8 +3,9 @@
   Our group determine to make a card game in racket, so I explored the  (games/cards) library. I use the library for for creating card games. Our game belongs to the type of the fun examples in the bundled games (http://docs.racket-lang.org/games/index.html?q=memory), right now we still considering the rules of the game, and how many players in the game. in the FP2. I just try to build a card game by the library. And the first step is to create a table,The table is named by Memory, and it is w cards wide and h cards high.(w=4, h=2). Then creating my-deck by (make-deck). And I add the cards in the table.When running the code, it can show a window (picture4). There are 4 cards in the window, The next step I plan to do the flapping part, that means the operator can flap the card.
 
 #Code:
+```racket
 #lang racket
-(require games/cards)
+ (require games/cards)
 (require racket/gui)
 
 (define WIDTH 4)
@@ -52,3 +53,4 @@
                     
 (setup)
 (send t show #t)
+```
