@@ -4,15 +4,15 @@
 
 #Code:
 lang racket
-(require games/cards)
-(require racket/gui)
-(define WIDTH 4)
-(define HEIGHT 2)
-(define t (make-table "Memory" (+ 2 WIDTH) (+ 1 HEIGHT)))
-(send t set-double-click-action #f)
-(define w (send t table-width))
-(define h (send t table-height))
-(define deck 
+  (require games/cards)
+  (require racket/gui)
+  (define WIDTH 4)
+  (define HEIGHT 2)
+  (define t (make-table "Memory" (+ 2 WIDTH) (+ 1 HEIGHT)))
+  (send t set-double-click-action #f)
+  (define w (send t table-width))
+  (define h (send t table-height))
+  (define deck 
   (let ([cards (map (lambda (name value)
                       (let ([bm (make-object
                                  bitmap%
@@ -28,14 +28,13 @@ lang racket
             (send card user-can-move #f)
             (send card user-can-flip #t))
           deck)
-(define cw (send (car deck) card-width))
-(define ch (send (car deck) card-height))
-(define dx (/ cw (+ 2 WIDTH)))
-(define dy (/ ch (+ 1 HEIGHT)))
-(define match-x (- w cw dx))
-(define match-y dy)
-(send t add-cards deck match-x match-y)
-(define (setup)
+  (define cw (send (car deck) card-width))
+  (define dx (/ cw (+ 2 WIDTH)))
+  (define dy (/ ch (+ 1 HEIGHT)))
+  (define match-x (- w cw dx))
+  (define match-y dy)
+  (send t add-cards deck match-x match-y)
+  (define (setup)
   (set! deck (shuffle-list deck 7))
   (send t stack-cards deck)
   (send t move-cards deck 0 0
